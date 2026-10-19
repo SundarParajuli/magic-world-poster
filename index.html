@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magic World Poster — Social Video Publishing Tool</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+         margin: 0; color: #1c1c1e; line-height: 1.6; }
+  header { border-bottom: 1px solid #e5e5e7; padding: 14px 24px;
+           display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+  header .brand { font-weight: 700; font-size: 18px; margin-right: auto; }
+  header a { color: #111; text-decoration: none; font-weight: 600; }
+  header a:hover { text-decoration: underline; }
+  main { max-width: 820px; margin: 0 auto; padding: 28px 24px 60px; }
+  h1 { font-size: 30px; margin: 8px 0 4px; }
+  h2 { font-size: 20px; margin-top: 32px; }
+  .lead { font-size: 18px; color: #3a3a3c; }
+  ul { padding-left: 22px; }
+  .steps { counter-reset: s; list-style: none; padding-left: 0; }
+  .steps li { counter-increment: s; margin: 10px 0; padding-left: 38px; position: relative; }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: 0;
+        width: 26px; height: 26px; border-radius: 50%; background: #111; color: #fff;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 14px; font-weight: 700; }
+  footer { border-top: 1px solid #e5e5e7; padding: 18px 24px; color: #6e6e73;
+           font-size: 14px; }
+  footer a { color: #6e6e73; }
+  .box { background: #f5f5f7; border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
+</style>
+</head>
+<body>
+<header>
+  <span class="brand">Magic World Poster</span>
+  <a href="index.html">Home</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Service</a>
+</header>
+<main>
+  <h1>Magic World Poster</h1>
+  <p class="lead">A desktop publishing tool for creators and social media
+     managers. It lets an operator prepare a video once and publish it to the
+     social accounts they manage — Facebook Pages, Instagram professional
+     accounts, and TikTok accounts — on a schedule they choose.</p>
+
+  <h2>What the tool does</h2>
+  <ul>
+    <li>Keeps a local queue of videos with a caption, a content category and a
+        publishing time.</li>
+    <li>Publishes each video to the connected platforms through the official
+        platform APIs (Meta Graph API and the TikTok Content Posting API).</li>
+    <li>Shows a per-platform status for every item, so the operator can see what
+        has been published and what is still waiting.</li>
+    <li>Labels AI-generated content where the destination platform supports a
+        disclosure flag, and adds the disclosure to captions.</li>
+  </ul>
+
+  <h2>How publishing works</h2>
+  <ol class="steps">
+    <li>The operator signs in with the account they want to publish to. The app
+        receives an access token through the platform's official authorization
+        flow and never sees a password.</li>
+    <li>The operator picks a video from the local queue and chooses a
+        destination: a Facebook Page, an Instagram professional account, or a
+        TikTok account.</li>
+    <li>Before anything is sent to TikTok, the operator reviews a preview of the
+        post and must explicitly select a privacy status and confirm their
+        consent to publish.</li>
+    <li>The video is uploaded to the platform and published. The app reports the
+        final status returned by the platform.</li>
+  </ol>
+
+  <h2>TikTok integration</h2>
+  <p>The application uses TikTok's Content Posting API. It requests the
+     <code>user.info.basic</code>, <code>video.publish</code> and
+     <code>video.upload</code> scopes, which are used only to read the
+     authorised account's basic profile information, to publish a video the
+     operator has explicitly approved, and to send a video to the account's
+     TikTok inbox as a draft.</p>
+  <p>Content is published only after the operator selects the privacy status and
+     presses the publish button. The application does not post anything on its
+     own without that confirmation, and it respects the account's available
+     privacy levels, comment, duet and stitch settings.</p>
+
+  <h2>Contact</h2>
+  <div class="box">
+    <p>Questions about this application, the data it handles, or how to get your
+       data deleted: open an issue or send a message via the operator's GitHub
+       profile at
+       <a href="https://github.com/SundarParajuli">github.com/SundarParajuli</a>.</p>
+  </div>
+</main>
+<footer>
+  <p>© 2026 Magic World Poster ·
+     <a href="privacy.html">Privacy Policy</a> ·
+     <a href="terms.html">Terms of Service</a></p>
+</footer>
+</body>
+</html>
