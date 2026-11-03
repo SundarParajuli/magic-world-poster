@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — Magic World Poster</title>
+<meta name="description" content="Frequently asked questions about Magic World Poster, its queue, supported platforms, TikTok drafts, data storage and account access.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#5b2be0">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container inner">
+    <a class="brand" href="index.html">
+      <img src="assets/icon-192.png" alt="Magic World Poster app icon" width="34" height="34">
+      Magic World Poster
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="docs.html">User guide</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="btn" href="support.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="block">
+    <div class="container">
+      <div class="prose">
+        <h1>Frequently asked questions</h1>
+        <p class="updated">Answers about accounts, publishing, data and troubleshooting.</p>
+      </div>
+
+      <div class="faq" style="margin-top:30px">
+        <details>
+          <summary>What is Magic World Poster?</summary>
+          <p>It is a desktop application that keeps a queue of short-form videos and publishes them to Facebook Pages, Instagram professional accounts and TikTok accounts that you are authorized to manage. It uses the platforms' official APIs and records the result of every post.</p>
+        </details>
+        <details>
+          <summary>Is this a website or a desktop app?</summary>
+          <p>It is a desktop app. This website is the product documentation and support site. You install and run the app on your own computer; there is no cloud account to create.</p>
+        </details>
+        <details>
+          <summary>Does the app publish without my confirmation?</summary>
+          <p>No. You build the queue and choose when each item is due. TikTok publishing requires you to review the post, choose a privacy status and explicitly confirm consent. Facebook and Instagram posts follow the schedule you set.</p>
+        </details>
+        <details>
+          <summary>Which TikTok permissions does it use?</summary>
+          <p>The app requests <code>user.info.basic</code> to show the connected account, <code>video.publish</code> to publish an approved video, and <code>video.upload</code> to send a draft to the TikTok inbox. These are used only for the publishing features described on this site.</p>
+        </details>
+        <details>
+          <summary>Why does my TikTok video arrive as a draft?</summary>
+          <p>TikTok's API only allows direct publishing for apps with the appropriate approved access. When direct publish is not available, the app places the video in your TikTok inbox. You finish the post in TikTok, and the app marks the item as a draft so you know it needs attention.</p>
+        </details>
+        <details>
+          <summary>Can I publish to several platforms at once?</summary>
+          <p>Yes. Set the destinations for an item to any combination of Facebook, Instagram and TikTok. Each platform is tracked separately, so a failure on one does not cause an already-successful post on another to be repeated.</p>
+        </details>
+        <details>
+          <summary>Where are my videos and tokens stored?</summary>
+          <p>On the machine where the app runs, in its local data folder. Videos are transmitted only to the platform you select when a post is published. Tokens are kept out of the public source code and out of ordinary log output. See the <a href="privacy.html">Privacy Policy</a>.</p>
+        </details>
+        <details>
+          <summary>How do I delete my data?</summary>
+          <p>Remove individual items in the app to delete their local records and video copies. To remove all information held by the app, follow the instructions on the <a href="support.html#data">data deletion</a> page. Data already sent to a platform is governed by that platform's own controls.</p>
+        </details>
+        <details>
+          <summary>What happens if the app is closed at the scheduled time?</summary>
+          <p>Overdue items are caught up when the app starts again, in queue order. You do not need to re-add or reschedule them.</p>
+        </details>
+        <details>
+          <summary>Does it work on Windows, macOS and Linux?</summary>
+          <p>The app is a Python desktop application and runs wherever Python 3.10+ with Tk and Pillow are available. The publishing workflow is the same on each platform.</p>
+        </details>
+        <details>
+          <summary>How do I get help?</summary>
+          <p>Use the <a href="support.html">support page</a>. Include the platform, the affected item's status and the error text so the issue can be reproduced quickly.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2>Need more detail?</h2>
+          <p>The user guide walks through setup, queue fields and the TikTok draft flow.</p>
+        </div>
+        <a class="btn" href="docs.html">Read the user guide</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/icon-192.png" alt="">
+          Magic World Poster
+        </div>
+        <p>A desktop publishing tool for short-form video. Queue once, review, and publish to Facebook, Instagram and TikTok.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="docs.html">User guide</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="support.html#data">Data deletion</a></li>
+          <li><a href="support.html#security">Report a security issue</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="https://github.com/SundarParajuli">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Magic World Poster. All rights reserved.</p>
+      <p>Facebook, Instagram and TikTok are trademarks of their respective owners.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

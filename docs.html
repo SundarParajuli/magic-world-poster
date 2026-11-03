@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User guide — Magic World Poster</title>
+<meta name="description" content="Magic World Poster user guide: requirements, connecting accounts, queue fields, scheduling, publishing, TikTok drafts, data storage and troubleshooting.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#5b2be0">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container inner">
+    <a class="brand" href="index.html">
+      <img src="assets/icon-192.png" alt="Magic World Poster app icon" width="34" height="34">
+      Magic World Poster
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="docs.html" aria-current="page">User guide</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="btn" href="support.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="block">
+    <div class="container">
+      <div class="prose">
+        <h1>User guide</h1>
+        <p class="updated">Last updated: 2 November 2026</p>
+        <p>This guide explains how to set up Magic World Poster, prepare a queue, connect accounts and publish videos. It also covers where data is stored and what to do when a platform rejects an upload.</p>
+
+        <div class="callout">
+          <p><strong>Before you start:</strong> you need a desktop computer, a Facebook Page or Instagram professional account and/or a TikTok account that you are authorized to publish to, and the app installed on that machine.</p>
+        </div>
+
+        <h2 id="requirements">1. Requirements</h2>
+        <ul>
+          <li>Windows, macOS or Linux with Python 3.10 or newer and Tk support.</li>
+          <li>The <code>Pillow</code> library for thumbnails and previews.</li>
+          <li>An internet connection for publishing and for the platform authorization steps.</li>
+          <li>Accounts you own or are explicitly permitted to manage on Facebook, Instagram and TikTok.</li>
+        </ul>
+        <p>The app is a local desktop program. It does not require a server, a database service or a cloud account.</p>
+
+        <h2 id="start">2. First run</h2>
+        <ol>
+          <li>Launch the application. The main window opens with the publishing queue.</li>
+          <li>Open the account or settings area and connect the platforms you intend to use.</li>
+          <li>Add your first video and give it a caption, category, destinations and a time.</li>
+          <li>Leave the app running if you want items to publish at their scheduled time. Items are caught up on the next start if the app was closed.</li>
+        </ol>
+
+        <h2 id="connect">3. Connecting accounts</h2>
+        <p>Each platform uses its own authorization screen:</p>
+        <ul>
+          <li><strong>Facebook / Instagram</strong> — sign in with the Meta account that manages the Page or professional account, then approve the requested permissions. The app receives a token and reads the Pages and Instagram accounts available to that login.</li>
+          <li><strong>TikTok</strong> — sign in with the TikTok account you want to publish to and approve the Content Posting API scopes. The app then shows the connected display name so you can confirm it is the right account.</li>
+        </ul>
+        <p>The app never asks for a platform password. Tokens are stored on the local machine and can be revoked at any time from the platform's own security settings.</p>
+
+        <h2 id="queue">4. Queue fields</h2>
+        <table>
+          <tr><th>Field</th><th>What it does</th></tr>
+          <tr><td>Video file</td><td>The local video to publish. A copy is kept with the queue item until the item is removed.</td></tr>
+          <tr><td>Caption</td><td>The text posted with the video. Hashtags and mentions can be included.</td></tr>
+          <tr><td>Category / niche</td><td>An optional label used to group items and to reuse hashtag sets.</td></tr>
+          <tr><td>Destinations</td><td>Any combination of Facebook, Instagram and TikTok. Each is tracked separately.</td></tr>
+          <tr><td>Scheduled time</td><td>When the item becomes due. The engine publishes due items automatically.</td></tr>
+          <tr><td>AI-generated</td><td>Marks the item for disclosure on platforms that support it, with a caption note as a fallback.</td></tr>
+        </table>
+
+        <h2 id="publish">5. Publishing an item now</h2>
+        <ol>
+          <li>Select the item (or several items) in the queue.</li>
+          <li>Choose the destination scope: all platforms, or one platform at a time.</li>
+          <li>Press the publish action. A single worker processes one item at a time to avoid rate-limit bursts.</li>
+          <li>Watch the per-platform status. The item is complete when every chosen destination has a final result.</li>
+        </ol>
+        <p>For TikTok, the publish wizard shows the privacy choices reported by the account. Choose one and confirm consent; the upload starts only after that confirmation.</p>
+
+        <h2 id="tiktok">6. TikTok drafts</h2>
+        <p>When direct publish is not available, the app uploads the video to the account's TikTok inbox and marks the row with a draft indicator. To finish:</p>
+        <ol>
+          <li>Open TikTok on your phone or at tiktok.com and go to your inbox or drafts.</li>
+          <li>Select the uploaded draft and paste the caption (the app copies it for you).</li>
+          <li>Publish it in TikTok, then mark the item as posted in Magic World Poster so the queue stays accurate.</li>
+        </ol>
+        <p>TikTok limits how many unposted drafts an inbox can hold. When the limit is reached, the app postpones TikTok uploads and retries later; other platforms are unaffected.</p>
+
+        <h2 id="retries">7. Failures and retries</h2>
+        <ul>
+          <li>Network errors and temporary API errors are retried automatically with increasing delays.</li>
+          <li>An item that succeeds on one platform and fails on another is retried only for the failed platform.</li>
+          <li>Permanent errors, such as an expired token or a rejected video format, are shown with the platform's message so you can correct the item.</li>
+          <li>Reconnect the account if the platform reports that the token has expired or been revoked.</li>
+        </ul>
+
+        <h2 id="data">8. Where data is stored</h2>
+        <p>Queue entries, copied videos, tokens and the publishing log are stored in the application's local data folder on the machine where it runs. Nothing is uploaded to a Magic World Poster server; there is no such server. The only outbound requests are the platform API calls required to publish the content you selected.</p>
+        <p>Removing a queue item deletes its local record and video copy. See the <a href="privacy.html">Privacy Policy</a> for the full data description and deletion instructions.</p>
+
+        <h2 id="troubleshooting">9. Troubleshooting</h2>
+        <h3>“Token expired” or “session invalid”</h3>
+        <p>Disconnect and reconnect the affected account. Tokens can expire or be revoked from the platform's security settings.</p>
+        <h3>A video uploads to TikTok but does not appear as published</h3>
+        <p>Check the TikTok inbox for a draft. The app may not have direct-publish access for the account, in which case the draft must be finished in TikTok.</p>
+        <h3>Facebook or Instagram rejects the video</h3>
+        <p>Check the format, duration and aspect ratio against the platform's current requirements. The platform's error message is stored with the item and written to the local log.</p>
+        <h3>The app was closed at the scheduled time</h3>
+        <p>Start it again. Overdue items are picked up on boot, in queue order. Nothing is lost.</p>
+
+        <h2 id="contact">10. Getting help</h2>
+        <p>If something is not covered here, see the <a href="faq.html">FAQ</a> or contact support through the <a href="support.html">support page</a>. Include the platform, the item's status and the error text from the log so the issue can be diagnosed quickly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2>Still have a question?</h2>
+          <p>Send the details and we will help you get the queue publishing again.</p>
+        </div>
+        <a class="btn" href="support.html">Contact support</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/icon-192.png" alt="">
+          Magic World Poster
+        </div>
+        <p>A desktop publishing tool for short-form video. Queue once, review, and publish to Facebook, Instagram and TikTok.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="docs.html">User guide</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="support.html#data">Data deletion</a></li>
+          <li><a href="support.html#security">Report a security issue</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="https://github.com/SundarParajuli">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Magic World Poster. All rights reserved.</p>
+      <p>Facebook, Instagram and TikTok are trademarks of their respective owners.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

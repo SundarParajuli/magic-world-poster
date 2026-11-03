@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Features — Magic World Poster</title>
+<meta name="description" content="Features of Magic World Poster: local video queue, scheduling, per-platform status, TikTok drafts, safe retries, AI disclosure and privacy controls.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#5b2be0">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container inner">
+    <a class="brand" href="index.html">
+      <img src="assets/icon-192.png" alt="Magic World Poster app icon" width="34" height="34">
+      Magic World Poster
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="features.html" aria-current="page">Features</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="docs.html">User guide</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="btn" href="support.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="block">
+    <div class="container">
+      <div class="prose">
+        <h1>Features</h1>
+        <p class="updated">Everything the app does, from the first import to the final platform status.</p>
+        <p>Magic World Poster is deliberately focused. It is not a full social-media management suite; it is a reliable local queue and publishing bridge for short-form video, with a clear audit trail for every post.</p>
+      </div>
+
+      <div class="grid" style="margin-top:34px">
+        <div class="card">
+          <div class="ico">Q</div>
+          <h3>Local video queue</h3>
+          <p>Add a video once and keep its file, caption, category, target platforms and scheduled time together. Reorder or reschedule items at any time before they publish.</p>
+        </div>
+        <div class="card">
+          <div class="ico">S</div>
+          <h3>Flexible scheduling</h3>
+          <p>Pick an exact date and time for each item. The engine checks every few seconds and publishes the next due post, catching up on anything that became overdue while the app was closed.</p>
+        </div>
+        <div class="card">
+          <div class="ico">P</div>
+          <h3>Per-platform status</h3>
+          <p>Every item records a separate result for Facebook, Instagram and TikTok, including post identifiers and error messages, so you always know what actually went live.</p>
+        </div>
+        <div class="card">
+          <div class="ico">D</div>
+          <h3>TikTok inbox drafts</h3>
+          <p>When direct publishing is not available for your app, the video is uploaded to your TikTok inbox as a draft. The app marks the row and copies the caption so you can finish it in the TikTok app.</p>
+        </div>
+        <div class="card">
+          <div class="ico">R</div>
+          <h3>Retries with backoff</h3>
+          <p>Temporary network or API failures are retried automatically. If one platform succeeds and another fails, only the failed destination is attempted again.</p>
+        </div>
+        <div class="card">
+          <div class="ico">I</div>
+          <h3>Idempotency guards</h3>
+          <p>Caption fingerprints and stored post identifiers prevent the same item from being published twice after a restart or an interrupted upload.</p>
+        </div>
+        <div class="card">
+          <div class="ico">A</div>
+          <h3>AI-generated disclosure</h3>
+          <p>Mark an item as AI-generated and the app uses the destination platform's disclosure option where available, and adds a disclosure line to the caption as a fallback.</p>
+        </div>
+        <div class="card">
+          <div class="ico">L</div>
+          <h3>Local-first privacy</h3>
+          <p>Queue data, tokens and logs stay on your machine. There is no advertising SDK, no third-party analytics and no cloud account to create.</p>
+        </div>
+        <div class="card">
+          <div class="ico">C</div>
+          <h3>Caption tools</h3>
+          <p>Keep reusable niches and hashtag sets, copy captions to the clipboard, and preview exactly what will accompany each video before it publishes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block soft">
+    <div class="container">
+      <div class="section-head">
+        <h2>Built around explicit consent</h2>
+        <p>Publishing is an action you take, not something that happens behind your back.</p>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>Review before publishing</h3>
+          <p>The publish wizard shows the file, caption, destination and privacy choices. Nothing is sent to TikTok until you select a privacy status and confirm consent.</p>
+        </div>
+        <div class="card">
+          <h3>Respect for platform settings</h3>
+          <p>The app requests only the scopes it needs and honours the privacy levels, comment, duet and stitch options that the platform reports for your account.</p>
+        </div>
+        <div class="card">
+          <h3>Transparent logs</h3>
+          <p>Each attempt is written to a local log with the platform response, so a failure can be diagnosed without guessing. Tokens are never written to ordinary logs.</p>
+        </div>
+        <div class="card">
+          <h3>You stay in control</h3>
+          <p>Disconnect an account at any time, revoke access from the platform's own settings, or remove a queue item to delete its local record and video copy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2>See the workflow end to end</h2>
+          <p>From connecting an account to checking the final platform status.</p>
+        </div>
+        <a class="btn" href="how-it-works.html">How it works</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/icon-192.png" alt="">
+          Magic World Poster
+        </div>
+        <p>A desktop publishing tool for short-form video. Queue once, review, and publish to Facebook, Instagram and TikTok.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="docs.html">User guide</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="support.html#data">Data deletion</a></li>
+          <li><a href="support.html#security">Report a security issue</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="https://github.com/SundarParajuli">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Magic World Poster. All rights reserved.</p>
+      <p>Facebook, Instagram and TikTok are trademarks of their respective owners.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

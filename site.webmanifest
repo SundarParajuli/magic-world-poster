@@ -1,0 +1,13 @@
+{
+  "name": "Magic World Poster",
+  "short_name": "Magic World Poster",
+  "description": "Desktop publishing tool for queueing and publishing short-form video to Facebook, Instagram and TikTok.",
+  "start_url": "/magic-world-poster/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5b2be0",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

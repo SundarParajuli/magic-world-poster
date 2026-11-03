@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works — Magic World Poster</title>
+<meta name="description" content="How Magic World Poster connects accounts, schedules videos and publishes them to Facebook, Instagram and TikTok, including the TikTok draft workflow.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#5b2be0">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container inner">
+    <a class="brand" href="index.html">
+      <img src="assets/icon-192.png" alt="Magic World Poster app icon" width="34" height="34">
+      Magic World Poster
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html" aria-current="page">How it works</a>
+      <a href="docs.html">User guide</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="btn" href="support.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="block">
+    <div class="container">
+      <div class="prose">
+        <h1>How it works</h1>
+        <p class="updated">A complete walkthrough — from authorizing an account to checking the published post.</p>
+        <p>Magic World Poster runs entirely on the operator's machine. It prepares a post, uploads it through the platform's official API, and records the result. The steps below describe what happens at each stage.</p>
+      </div>
+
+      <ol class="steps-list" style="margin-top:34px">
+        <li>
+          <b>1 · Connect the accounts you manage</b>
+          <span>
+            The operator chooses Facebook, Instagram or TikTok and completes that platform's authorization screen.
+            The platform returns an access token, which the app stores locally. Passwords are never requested or stored.
+            Only accounts the operator is permitted to manage are accepted by the platform.
+          </span>
+        </li>
+        <li>
+          <b>2 · Build the local queue</b>
+          <span>
+            Videos are added from disk. For each item the operator sets a caption, a content category, the destinations
+            and a publishing time. The queue can be sorted and edited at any point before publishing.
+          </span>
+        </li>
+        <li>
+          <b>3 · Review and confirm</b>
+          <span>
+            Opening an item shows a preview of the video, its caption and the destination accounts. For TikTok, the
+            publish wizard also asks for a privacy status and an explicit confirmation that the operator consents to
+            publish the video.
+          </span>
+        </li>
+        <li>
+          <b>4 · Publish through the official API</b>
+          <span>
+            Facebook and Instagram uploads use the Meta Graph API. TikTok uploads use the Content Posting API. The app
+            sends one upload at a time, waits for the platform to report success, and stores the returned post identifier.
+          </span>
+        </li>
+        <li>
+          <b>5 · Verify the result</b>
+          <span>
+            The queue shows a status per destination. Successful posts are marked as posted. Failures show the platform's
+            error and are retried with backoff. If an item is partially published, only the failed destinations are retried.
+          </span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block soft">
+    <div class="container">
+      <div class="section-head">
+        <h2>The TikTok workflow</h2>
+        <p>TikTok's Content Posting API supports two paths. Magic World Poster handles both.</p>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>Direct publish</h3>
+          <p>When the authorized account and the app's approved access allow direct publishing, the video is posted to the account. The operator still chooses the privacy level and confirms before the request is sent.</p>
+        </div>
+        <div class="card">
+          <h3>Inbox draft</h3>
+          <p>Otherwise the video is uploaded to the account's TikTok inbox as a draft. The app shows a draft marker in the queue and copies the caption to the clipboard. The operator opens TikTok, reviews the draft, pastes the caption and publishes it there.</p>
+        </div>
+      </div>
+      <div class="notice" style="margin-top:20px">
+        <strong>Why drafts?</strong> TikTok limits the number of unposted drafts in an inbox. When the limit is reached, the app pauses TikTok uploads for that item and retries later, while Facebook and Instagram continue normally.
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="section-head">
+        <h2>Scheduling and recovery</h2>
+        <p>What the engine does while you are not looking.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Due checks</h3>
+          <p>The engine checks the queue on a short interval. When an item's time arrives, it is handed to a single upload worker so requests do not overlap.</p>
+        </div>
+        <div class="card">
+          <h3>Catch-up</h3>
+          <p>If the app was closed at the scheduled time, overdue items are published when it starts again, in queue order.</p>
+        </div>
+        <div class="card">
+          <h3>Backoff</h3>
+          <p>A failed upload waits before retrying, with a cap on attempts. The reason is written to the log and shown on the item.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2>Ready to set it up?</h2>
+          <p>The user guide covers requirements, queue fields, privacy settings and troubleshooting.</p>
+        </div>
+        <a class="btn" href="docs.html">Read the user guide</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/icon-192.png" alt="">
+          Magic World Poster
+        </div>
+        <p>A desktop publishing tool for short-form video. Queue once, review, and publish to Facebook, Instagram and TikTok.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="docs.html">User guide</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="support.html#data">Data deletion</a></li>
+          <li><a href="support.html#security">Report a security issue</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="https://github.com/SundarParajuli">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Magic World Poster. All rights reserved.</p>
+      <p>Facebook, Instagram and TikTok are trademarks of their respective owners.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
